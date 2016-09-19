@@ -1,11 +1,11 @@
-## Working with Network Proxies
-If you are working behind a corporate firewall, you must provide a sockets based proxy solution in the host OS. [Proxycap](http://www.proxycap.com)  is recommended.
+## Introduction
+This document explains how to use docker containers created to run Yocto Project tools in a Windows or Mac environment.
 ## Configure Containers
 ### Install docker toolbox
 Follow instructions <https://www.docker.com/products/docker-toolbox>
 ### Change default vm settings
-The default Virtual Box VM does not provide enough resources give a good experience when building Yocto images. You will need to allocate 4 physical cores and 8GB of memory to a VM while leaving at two virtual cores and 2GB RAM for host OS.
-* Run the Docker Quickstart Terminal and run the following commands in that terminal.
+The default Virtual Box VM does not provide enough resources to give a good experience when building Yocto images. You will need to allocate 4 physical cores and 8GB of memory to a VM while leaving at two virtual cores and 2GB RAM for host OS.
+* Run **Docker Quickstart Terminal** and then run the following commands in that terminal.
 * Remove the default vm
 
      ```
@@ -65,8 +65,6 @@ Then start open a new Docker Quickstart Terminal.
     \\192.168.99.100\workdir
     ```
 
-* Future versions of the samba container will support NetBIOS so you can refer to file server by name rather than IP address.
-
 ## Using the poky container
 Before using the poky container, make sure the samba container is running. Note that if you have started it in a previous terminal it will still be running. Run poky container as follows,  note that we use the volume created above when specifying the workdir.
 
@@ -78,7 +76,10 @@ You will see a prompt that looks like
 
 `pokyuser@892e5d2574d6:/workdir$`
 
-Although this is called the poky container, it does not include the bitbake meta-data for the Yocto Project poky distro, instead it is a Linux environment will all dependencies already installed.
+Although this is called the poky container, it does not include the bitbake meta-data for the Yocto Project poky distro, instead it is a Linux environment with all dependencies already installed. See the [Yocto Quick Start Guide](http://www.yoctoproject.org/docs/current/yocto-project-qs/yocto-project-qs.html#releases) to get started with with Yocto project.
+
+## Working with Network Proxies
+If you are working behind a corporate firewall, you must provide a sockets based proxy solution in the host OS. Examples of such solutions for Windows and Mac are [Proxycap](http://www.proxycap.com) and [Proxifier](https://www.proxifier.com/).
 
 ## Troubleshooting
 ### Cannot connect to docker
