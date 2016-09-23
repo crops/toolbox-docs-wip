@@ -4,7 +4,7 @@ This document explains how to use docker containers created to run Yocto Project
 ### Install docker toolbox
 Follow instructions <https://www.docker.com/products/docker-toolbox>
 ### Change default vm settings
-The default Virtual Box VM does not provide enough resources to give a good experience when building Yocto images. You will need to allocate 4 physical cores and 8GB of memory to a VM while leaving at two virtual cores and 2GB RAM for host OS.
+The default Virtual Box VM does not provide enough resources to give a good experience when building Yocto images. We recommend you create a new VM with at least 2 CPUs and 4GB of memory.
 * Run **Docker Quickstart Terminal** and then run the following commands in that terminal.
 * Remove the default vm
 
@@ -13,8 +13,8 @@ The default Virtual Box VM does not provide enough resources to give a good expe
      ```
 
 * Re-create the default vm
-   * Choose the number of cpus with  **--virtualbox-cpu-count**. For this example we'll use four.
-   * Choose the amount of RAM: **--virtualbox-memory**. This is also based on the host hardware. However, choose at least 4GB. In this example, we'll choose 8GB (assuming your Windows platform has that much memory).
+   * Choose the number of cpus with  **--virtualbox-cpu-count**. For this example we'll use two.
+   * Choose the amount of RAM: **--virtualbox-memory**. This is also based on the host hardware. However, choose at least 4GB.
    * Choose the amount of disk space: **--virtualbox-disk-size**. It is recommended that this be at least 50GB since building generates a lot* of output. In this example we'll choose 50GB.
    * Create vm with new settings
 
@@ -77,9 +77,6 @@ You will see a prompt that looks like
 `pokyuser@892e5d2574d6:/workdir$`
 
 Although this is called the poky container, it does not include the bitbake meta-data for the Yocto Project poky distro, instead it is a Linux environment with all dependencies already installed. See the [Yocto Quick Start Guide](http://www.yoctoproject.org/docs/current/yocto-project-qs/yocto-project-qs.html#releases) to get started with with Yocto project.
-
-## Working with Network Proxies
-If you are working behind a corporate firewall, you must provide a sockets based proxy solution in the host OS. Examples of such solutions for Windows and Mac are [Proxycap](http://www.proxycap.com) and [Proxifier](https://www.proxifier.com/).
 
 ## Troubleshooting
 ### Cannot connect to docker
